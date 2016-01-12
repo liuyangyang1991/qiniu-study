@@ -44,3 +44,35 @@ go里面的消息同步机制，往channel里丢消息和取消息是一个原�
 同时处理多个消息是不会发生类似覆盖之类的错误的，类似于消息队列，消息间是相对独立安全的
 并且今天对于取地址运算符也有了新的理解(&)
 
+2016/01/08
+[学习总结]
+今天做的主要是针对上周学习后,课后习题的review,和修改原先的学习计划,对之后的学习内容进行调整.
+
+2016/01/12
+[学习总结]
+RESTful API  部分理解:
+资源＋动作＋参数 ＝ 一个请求
+REST的核心原则是将API拆分为逻辑上的资源。这些资源通过http被操作（GET,POST,PUT,DELETE）。
+从API用户的角度来看，“资源”应该是个名词。API设计的时候，不需要把它们一对一的都暴露出来，这里的关键是，隐藏内部资源，暴露必须的外部资源。
+一旦定义好了要暴露的资源，就可以定义资源上允许的操作，以及这些操作和API的对应关系：
+GET /tickets # 获取ticket列表
+GET /tickets/12 # 查看某个具体的ticket
+POST /tickets # 新建一个ticket
+PUT /tickets/12 # 更新ticket 12.
+DELETE /tickets/12 #删除ticekt 12
+可以看出使用REST的好处在于可以充分利用http的强大，实现对资源的CURD功能。
+［CURD： 创建create、更新update、读取read、删除delete］
+而这里只需要一个endpoint：  ／tickets
+关于endpoint的单数复数：
+一个可以遵从的规则是：虽然看起来使用复数来描述某一个资源实例看起来别扭，但是统一所有的endpoint，是用复数使得URL更加规整。这让API的使用者更加容易理解，对于开发者来说，也更容易实现。
+关于如何处理关联：
+假如关联和资源独立，那么在资源的输出表示中保存相应资源的endpoint，然后API的使用者就可以通过点击链接找到相关的资源。如果关联和资源联系紧密，资源的输出表示就应该直接保存相应资源信息。
+GET /tickets/12/messages- Retrieves list of messages for ticket #12
+GET /tickets/12/messages/5- Retrieves message #5 for ticket #12
+POST /tickets/12/messages- Creates a new message in ticket #12
+PUT /tickets/12/messages/5- Updates message #5 for ticket #12
+PATCH /tickets/12/messages/5- Partially updates message #5 for ticket #12
+DELETE /tickets/12/messages/5- Deletes message #5 for ticket #12
+例如，这里如果message资源是独立存在的，那么上面GET／tickets/12/messages就返回相应的message的链接；相反的如果message不独立存在，他和ticket依附存在，则上面的API调用返回直接返回message信息
+
+
