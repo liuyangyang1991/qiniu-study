@@ -75,4 +75,15 @@ PATCH /tickets/12/messages/5- Partially updates message #5 for ticket #12
 DELETE /tickets/12/messages/5- Deletes message #5 for ticket #12
 例如，这里如果message资源是独立存在的，那么上面GET／tickets/12/messages就返回相应的message的链接；相反的如果message不独立存在，他和ticket依附存在，则上面的API调用返回直接返回message信息
 
+2016/01/13
+[学习总结]
+今天讲了MongoDB的相关知识.MongoDB具有以下特性:
+1,MongoDB有原生的高可用支持.MySQL需要去配置MySQL主从,并且使用类似Atlas的代理来实现读写分离,相比较而言,MongoDB要方便许多.
+2,性能比较好
+3,支持二级索引
+4,灵活的单表查询
+同时,MongoDB也存在以下缺点:
+1,不支持事务
+2,不支持join操作
+3,磁盘空间利用率不高
 
